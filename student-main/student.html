@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Name Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      width: 400px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #111;
+      font-size: 24px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button.add-btn {
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      background-color: #f8f8f8;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button.add-btn:hover {
+      background-color: #e8e8e8;
+    }
+
+    .total-count {
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .student-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .student-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f3f0fd;
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .delete-btn {
+      background-color: #e54d42;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .delete-btn:hover {
+      background-color: #d13b30;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Student Name Manager</h2>
+    
+    <div class="input-group">
+      <input type="text" id="studentInput" placeholder="Enter student name">
+      <button class="add-btn" id="addBtn">Add Student</button>
+    </div>
+
+    <div class="total-count">
+      Total Students: <span id="totalCount">0</span>
+    </div>
+
+    <ul class="student-list" id="studentList"></ul>
+  </div>
+
+  <script>
+    // Array to store student names
+    let students = [];
+
+    // DOM Elements
+    const studentInput = document.getElementById('studentInput');
+    const addBtn = document.getElementById('addBtn');
+    const studentList = document.getElementById('studentList');
+    const totalCount = document.getElementById('totalCount');
+
+    // Function to render the list
+    function renderList() {
+      // Clear current list content
+      studentList.innerHTML = '';
+
+      // Render each student with their index
+      students.forEach((name, index) => {
+        const li = document.createElement('li');
+        li.className = 'student-item';
+
+        li.innerHTML = `
+          <span>${index + 1}. ${name}</span>
+          <button class="delete-btn" onclick="deleteStudent(${index})">Delete</button>
+        `;
+
+        studentList.appendChild(li);
+      });
+
+      // Update total count display
+      totalCount.textContent = students.length;
+    }
+
+    // Function to add a student
+    function addStudent() {
+      const name = studentInput.value.trim();
+      if (name !== '') {
+        students.push(name);
+        studentInput.value = ''; // Clear input field
+        renderList();
+      } else {
+        alert('Please enter a valid student name!');
+      }
+    }
+
+    // Function to delete a student by index
+    function deleteStudent(index) {
+      students.splice(index, 1);
+      renderList();
+    }
+
+    // Event listeners
+    addBtn.addEventListener('click', addStudent);
+
+    // Allow pressing "Enter" key to add student
+    studentInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        addStudent();
+      }
+    });
+
+    // Initial render
+    renderList();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Multiplication</title>
+</head>
+<body>
+
+    <h2>Matrix Multiplication</h2>
+
+    <script>
+        // First Matrix
+        let matrixA = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+
+        // Second Matrix
+        let matrixB = [
+            [9, 8, 7],
+            [6, 5, 4],
+            [3, 2, 1]
+        ];
+
+        // Result Matrix
+        let result = [];
+
+        // Matrix Multiplication
+        for (let i = 0; i < matrixA.length; i++) {
+            result[i] = [];
+
+            for (let j = 0; j < matrixB[0].length; j++) {
+                result[i][j] = 0;
+
+                for (let k = 0; k < matrixB.length; k++) {
+                    result[i][j] += matrixA[i][k] * matrixB[k][j];
+                }
+            }
+        }
+
+        // Display Result in Console
+        console.log("Result of Matrix Multiplication:");
+        console.table(result);
+
+        // Display Result on Web Page
+        document.write("<h3>Result Matrix:</h3>");
+
+        for (let i = 0; i < result.length; i++) {
+            for (let j = 0; j < result[i].length; j++) {
+                document.write(result[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Lost and Found Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎓 Campus Lost and Found Hub</h1>
+        <p>Find what you lost. Return what you found.</p>
+    </header>
+
+    <main>
+
+        <section class="welcome">
+            <h2>Welcome to Campus Lost & Found</h2>
+
+            <p>
+                Lost something on campus?
+                Found something that belongs to someone else?
+                You can report it here.
+            </p>
+        </section>
+
+        <section class="report-section">
+
+    <h2>Report an Item</h2>
+
+    <form id="itemForm">
+
+        <label for="itemType">Item Type</label>
+
+        <select id="itemType" required>
+            <option value="">Select an option</option>
+            <option value="Lost">Lost Item</option>
+            <option value="Found">Found Item</option>
+        </select>
+
+
+        <label for="itemName">Item Name</label>
+
+        <input
+            type="text"
+            id="itemName"
+            placeholder="Example: Black Wallet"
+            required
+        >
+
+
+        <label for="description">Description</label>
+
+        <textarea
+            id="description"
+            placeholder="Describe the item..."
+            required
+        ></textarea>
+
+
+        <label for="location">Location</label>
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Example: College Library"
+            required
+        >
+
+
+        <label for="date">Date</label>
+
+        <input
+            type="date"
+            id="date"
+            required
+        >
+
+
+        <label for="contact">Contact Information</label>
+
+        <input
+            type="text"
+            id="contact"
+            placeholder="Phone number or email"
+            required
+        >
+
+
+        <button type="submit">
+            Submit Report
+        </button>
+
+    </form>
+
+</section>
+
+        <section>
+    <h2>Recent Lost & Found Items</h2>
+
+    <div class="search-area">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by item name or location..."
+        >
+
+        <select id="filterType">
+            <option value="All">All Items</option>
+            <option value="Lost">Lost Items</option>
+            <option value="Found">Found Items</option>
+            <option value="Returned">Returned Items</option>
+        </select>
+
+    </div>
+
+    <div id="itemsContainer">
+        <p>No items available yet.</p>
+    </div>
+</section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Campus Lost and Found Hub</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

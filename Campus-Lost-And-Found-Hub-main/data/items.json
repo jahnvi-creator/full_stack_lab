@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1789313987674,
+        "type": "Lost",
+        "name": "black wallet",
+        "description": "black wallet with clg id",
+        "location": "clg library",
+        "date": "2026-09-12",
+        "contact": "9876543210",
+        "status": "Returned"
+    },
+    {
+        "id": 1789316644436,
+        "type": "Found",
+        "name": "black wallet",
+        "description": "black wallet with student clg id",
+        "location": "college library",
+        "date": "2026-09-13",
+        "contact": "9876123450"
+    }
+]
